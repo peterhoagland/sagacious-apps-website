@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account & Data Deletion Request - Sagacious Apps</title>
+    <meta name="description" content="Request deletion of your account and personal data from Sagacious Apps.">
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        .data-deletion-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: var(--spacing-3xl) var(--spacing-md);
+            min-height: 100vh;
+        }
+        
+        .data-deletion-header {
+            text-align: center;
+            margin-bottom: var(--spacing-2xl);
+        }
+        
+        .data-deletion-header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .data-deletion-header p {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+        }
+        
+        .content-section {
+            background: var(--bg-secondary);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-xl);
+            margin-bottom: var(--spacing-lg);
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .content-section h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .content-section h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-top: var(--spacing-lg);
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .content-section p, .content-section ul {
+            color: var(--text-secondary);
+            margin-bottom: var(--spacing-md);
+            line-height: 1.8;
+        }
+        
+        .content-section ul {
+            padding-left: var(--spacing-lg);
+        }
+        
+        .content-section li {
+            margin-bottom: var(--spacing-xs);
+        }
+        
+        .deletion-form {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            padding: var(--spacing-xl);
+            margin-top: var(--spacing-lg);
+        }
+        
+        .form-group {
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .form-group label {
+            display: block;
+            font-weight: 500;
+            color: var(--text-primary);
+            margin-bottom: var(--spacing-xs);
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            font-family: inherit;
+            font-size: 1rem;
+            color: var(--text-primary);
+            background: white;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+        }
+        
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+        
+        .form-group small {
+            display: block;
+            color: var(--text-light);
+            margin-top: var(--spacing-xs);
+            font-size: 0.875rem;
+        }
+        
+        .btn-submit {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--primary);
+            color: white;
+            padding: 0.875rem 1.75rem;
+            border: none;
+            border-radius: var(--radius-sm);
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-decoration: none;
+        }
+        
+        .btn-submit:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .warning-box {
+            background: #fef3c7;
+            border-left: 4px solid #f59e0b;
+            border-radius: var(--radius-sm);
+            padding: var(--spacing-md);
+            margin: var(--spacing-lg) 0;
+        }
+        
+        .warning-box p {
+            color: #92400e;
+            margin: 0;
+        }
+        
+        .email-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .email-link:hover {
+            text-decoration: underline;
+        }
+        
+        @media (max-width: 768px) {
+            .data-deletion-header h1 {
+                font-size: 2rem;
+            }
+            
+            .content-section {
+                padding: var(--spacing-md);
+            }
+            
+            .deletion-form {
+                padding: var(--spacing-md);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="data-deletion-container">
+        <div class="data-deletion-header">
+            <h1>Account & Data Deletion Request</h1>
+            <p>Request the deletion of your account and associated data from Sagacious Apps</p>
+        </div>
+
+        <div class="content-section">
+            <h2>About Data Deletion</h2>
+            <p>
+                At Sagacious Apps, we respect your privacy and your right to control your personal data. 
+                You can request either full account deletion or partial data deletion depending on your needs.
+            </p>
+
+            <h3>Option 1: Full Account Deletion</h3>
+            <p>When you request full account deletion, the following data will be permanently removed:</p>
+            <ul>
+                <li><strong>Account Information:</strong> Google account credentials, display name, email address, profile photo</li>
+                <li><strong>User-Generated Content:</strong> All saved and favorited stories you've created</li>
+                <li><strong>Purchase History:</strong> All in-app purchase records, unlocked story collections, and remaining credits</li>
+                <li><strong>Usage Data:</strong> App usage analytics and interaction history</li>
+                <li><strong>Authentication Data:</strong> User ID and last sign-in timestamps</li>
+            </ul>
+            <div class="warning-box">
+                <p>
+                    <strong>Important:</strong> Full account deletion is permanent and cannot be undone. You will lose access to any purchased content, 
+                    unlocked story collections, and remaining credits. You will need to create a new account to use the app again.
+                </p>
+            </div>
+
+            <h3>Option 2: Partial Data Deletion (Keep Account Active)</h3>
+            <p>If you want to clear your data but keep your account for future use, we can delete the following:</p>
+            <ul>
+                <li><strong>User-Generated Content:</strong> All saved and favorited stories you've created</li>
+                <li><strong>Story Timestamps:</strong> Creation and modification dates for your stories</li>
+                <li><strong>Cloud Sync Data:</strong> Backup copies of your stories stored in our cloud database</li>
+                <li><strong>Usage Data:</strong> App interaction history and analytics</li>
+            </ul>
+
+            <p><strong>Data that will be retained with partial deletion:</strong></p>
+            <ul>
+                <li><strong>Account Information:</strong> Google authentication data (name, email, profile photo)</li>
+                <li><strong>Purchase History:</strong> Your in-app purchases, unlocked collections, and remaining credits</li>
+                <li><strong>Last Sign-In:</strong> Your most recent login timestamp</li>
+            </ul>
+
+            <p>
+                With partial deletion, your account remains active and you can continue using the app. Your purchased 
+                content and unlocked story collections will be preserved, but all stories you've created will be permanently deleted.
+            </p>
+
+            <h3>Timeline</h3>
+            <p>
+                Data deletion requests are typically processed within 30 days. You will receive a confirmation 
+                email once your data has been successfully deleted from our systems.
+            </p>
+        </div>
+
+        <div class="content-section">
+            <h2>Submit Deletion Request</h2>
+            <p>
+                Please fill out the form below to request deletion of your data. You can choose between full account 
+                deletion or partial data deletion. Alternatively, you can email us directly at 
+                <a href="mailto:support@sagaciousapps.com" class="email-link">support@sagaciousapps.com</a> 
+                with the subject line "Data Deletion Request".
+            </p>
+
+            <!-- 
+                GOOGLE FORM FIELD SETUP:
+                1. Email Address (short answer, required, email validation)
+                2. App Name (dropdown, required): Rad Libs, Other
+                3. Deletion Type (multiple choice, required):
+                   - Full Account Deletion (removes everything including purchases and credits)
+                   - Partial Data Deletion (removes created stories but keeps account and purchases)
+                4. User ID or Username (short answer, optional)
+                5. Reason for Deletion (paragraph, optional)
+                6. Confirmation checkbox (required): "I understand this action is permanent and cannot be undone"
+            -->
+
+            <div class="deletion-form">
+                <!-- Embedded Google Form -->
+                <iframe 
+                    src="https://docs.google.com/forms/d/e/1FAIpQLSdIoqs7LOoUk3W5UtHYmA0EO4r_f7Jt1F-m-xI5549HMPyMog/viewform?embedded=true"
+                    width="100%" 
+                    height="900" 
+                    frameborder="0" 
+                    marginheight="0" 
+                    marginwidth="0"
+                    style="border: none; border-radius: var(--radius-sm);">
+                    Loading…
+                </iframe>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Alternative Contact Methods</h2>
+            <p>
+                If you prefer not to use the form above, you can submit your data deletion request via email:
+            </p>
+            <p>
+                <strong>Email:</strong> <a href="mailto:support@sagaciousapps.com?subject=Data%20Deletion%20Request" class="email-link">support@sagaciousapps.com</a>
+            </p>
+            <p>
+                Please include your email address and the name of the app in your request.
+            </p>
+        </div>
+    </div>
+</body>
+</html>
