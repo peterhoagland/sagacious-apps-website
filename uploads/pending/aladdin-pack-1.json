@@ -1,0 +1,207 @@
+{
+  "category": "Aladdin 1",
+  "packId": "pack_aladdin_1",
+  "isPremium": true,
+  "creditCost": 1,
+  "tags": [
+    "aladdin",
+    "desert",
+    "magic lamp",
+    "flying",
+    "carpet",
+    "royal",
+    "palace",
+    "street adventure",
+    "wish",
+    "genie",
+    "fantasy",
+    "marketplace",
+    "villain",
+    "friendship",
+    "princess",
+    "jasmine",
+    "disney"
+  ],
+  "stories": [
+    {
+      "Id": "aladdin1-1",
+      "Title": "Market Dash at Sunrise",
+      "Story": "At sunrise in the {adjective} bazaar of {place}, a clever street kid snatched a {noun} and dodged {number} angry {plural-noun}. He had to {verb} {adverb} past a {color} cart while shouting '{exclamation}!' to {name}. A(n) {animal} jumped onto his {body-part}, a vendor dropped {food}, and the whole crowd began {verb-ending-in-ing} in a {adjective} panic.",
+      "Placeholders": ["adjective", "place", "noun", "number", "plural-noun", "verb", "adverb", "color", "exclamation", "name", "animal", "body-part", "food", "verb-ending-in-ing", "adjective"],
+      "CreatedDate": "2026-04-13T00:00:00.000Z",
+      "IsFavorite": false,
+      "PackId": "pack_aladdin_1"
+    },
+    {
+      "Id": "aladdin1-2",
+      "Title": "A Princess in Disguise",
+      "Story": "A {adjective} royal wandered into {place} wearing a {noun} instead of jewels and shared {food} with {plural-noun}. When a guard yelled '{exclamation}!' at {name}, she decided to {verb} {adverb} through the crowd. A {color} banner wrapped around her {body-part}, a {animal} stole {number} bracelets, and everyone ended up {verb-ending-in-ing} in a {adjective} alley.",
+      "Placeholders": ["adjective", "place", "noun", "food", "plural-noun", "exclamation", "name", "verb", "adverb", "color", "body-part", "animal", "number", "verb-ending-in-ing", "adjective"],
+      "CreatedDate": "2026-04-13T00:00:00.000Z",
+      "IsFavorite": false,
+      "PackId": "pack_aladdin_1"
+    },
+    {
+      "Id": "aladdin1-3",
+      "Title": "The Sorcerer's Recruitment",
+      "Story": "A {adjective} sorcerer met a street kid near {place} and offered a {noun} for one risky mission. He promised {number} bags of {food} if the kid could {verb} {adverb} into a cave guarded by {plural-noun}. He whispered '{exclamation}!' to {name}, handed over a {color} map, pointed at his {body-part}, and laughed when a {animal} started {verb-ending-in-ing} in a {adjective} cloud of sand.",
+      "Placeholders": ["adjective", "place", "noun", "number", "food", "verb", "adverb", "plural-noun", "exclamation", "name", "color", "body-part", "animal", "verb-ending-in-ing", "adjective"],
+      "CreatedDate": "2026-04-13T00:00:00.000Z",
+      "IsFavorite": false,
+      "PackId": "pack_aladdin_1"
+    },
+    {
+      "Id": "aladdin1-4",
+      "Title": "Inside the Cave of Treasures",
+      "Story": "Inside a {adjective} cave beneath {place}, piles of {plural-noun} glittered beside a lonely {noun}. The hero was told to {verb} {adverb} and touch nothing except one old lamp. He muttered '{exclamation}!' to {name} when a {color} bridge shook under his {body-part}. A {animal} grabbed {number} gems, someone dropped {food}, and the walls began {verb-ending-in-ing} with a {adjective} roar.",
+      "Placeholders": ["adjective", "place", "plural-noun", "noun", "verb", "adverb", "exclamation", "name", "color", "body-part", "animal", "number", "food", "verb-ending-in-ing", "adjective"],
+      "CreatedDate": "2026-04-13T00:00:00.000Z",
+      "IsFavorite": false,
+      "PackId": "pack_aladdin_1"
+    },
+    {
+      "Id": "aladdin1-5",
+      "Title": "Lamp Rub Surprise",
+      "Story": "In a {adjective} corner of {place}, the hero rubbed a dusty {noun} and a giant spirit exploded out with {color} smoke. The spirit shouted '{exclamation}!' to {name} and offered {number} wishes plus endless {food}. A {animal} fainted onto someone's {body-part} while nearby {plural-noun} started {verb-ending-in-ing}. The hero chose to {verb} {adverb}, and the spirit called it a {adjective} plan.",
+      "Placeholders": ["adjective", "place", "noun", "color", "exclamation", "name", "number", "food", "animal", "body-part", "plural-noun", "verb-ending-in-ing", "verb", "adverb", "adjective"],
+      "CreatedDate": "2026-04-13T00:00:00.000Z",
+      "IsFavorite": false,
+      "PackId": "pack_aladdin_1"
+    },
+    {
+      "Id": "aladdin1-6",
+      "Title": "Royal Makeover Parade",
+      "Story": "To impress the palace, the spirit created a {adjective} parade through {place} with {number} {plural-noun} and one glittering {noun}. The new prince had to {verb} {adverb} while waving at {name}. Drums went '{exclamation}!' as a {color} elephant bumped his {body-part}. A {animal} juggled {food}, the crowd started {verb-ending-in-ing}, and the grand entrance became a {adjective} spectacle.",
+      "Placeholders": ["adjective", "place", "number", "plural-noun", "noun", "verb", "adverb", "name", "exclamation", "color", "body-part", "animal", "food", "verb-ending-in-ing", "adjective"],
+      "CreatedDate": "2026-04-13T00:00:00.000Z",
+      "IsFavorite": false,
+      "PackId": "pack_aladdin_1"
+    },
+    {
+      "Id": "aladdin1-7",
+      "Title": "Balcony Conversation Gone Wrong",
+      "Story": "At a {adjective} palace balcony in {place}, a disguised prince offered a {noun} and spoke to {name} about freedom. Just as he tried to {verb} {adverb}, a guard yelled '{exclamation}!' and dropped {number} {plural-noun}. A {color} curtain wrapped around his {body-part}, a {animal} stole {food}, and both royals ended up {verb-ending-in-ing} through a {adjective} hallway.",
+      "Placeholders": ["adjective", "place", "noun", "name", "verb", "adverb", "exclamation", "number", "plural-noun", "color", "body-part", "animal", "food", "verb-ending-in-ing", "adjective"],
+      "CreatedDate": "2026-04-13T00:00:00.000Z",
+      "IsFavorite": false,
+      "PackId": "pack_aladdin_1"
+    },
+    {
+      "Id": "aladdin1-8",
+      "Title": "First Carpet Flight",
+      "Story": "On a {adjective} night above {place}, a magic carpet invited two friends onto its {noun}-shaped corner. They began to {verb} {adverb} over {number} {plural-noun} while sharing {food}. One rider shouted '{exclamation}!' at {name} when a {color} cloud smacked their {body-part}. A {animal} waved from below, both riders kept {verb-ending-in-ing}, and the moon looked {adjective} enough to kiss.",
+      "Placeholders": ["adjective", "place", "noun", "verb", "adverb", "number", "plural-noun", "food", "exclamation", "name", "color", "body-part", "animal", "verb-ending-in-ing", "adjective"],
+      "CreatedDate": "2026-04-13T00:00:00.000Z",
+      "IsFavorite": false,
+      "PackId": "pack_aladdin_1"
+    },
+    {
+      "Id": "aladdin1-9",
+      "Title": "The Villain Gets the Lamp",
+      "Story": "Back in the {adjective} palace of {place}, the royal advisor swapped a {noun} for the magic lamp. He ordered the spirit to {verb} {adverb} and move the entire palace past {number} {plural-noun}. The spirit sighed '{exclamation}!' at {name} as the floor turned {color} beneath his {body-part}. A {animal} hid in {food}, guards started {verb-ending-in-ing}, and the takeover felt {adjective} and terrifying.",
+      "Placeholders": ["adjective", "place", "noun", "verb", "adverb", "number", "plural-noun", "exclamation", "name", "color", "body-part", "animal", "food", "verb-ending-in-ing", "adjective"],
+      "CreatedDate": "2026-04-13T00:00:00.000Z",
+      "IsFavorite": false,
+      "PackId": "pack_aladdin_1"
+    },
+    {
+      "Id": "aladdin1-10",
+      "Title": "Dungeon Escape Trick",
+      "Story": "Trapped in a {adjective} dungeon under {place}, the hero found only a {noun}, {number} {plural-noun}, and stale {food}. He chose to {verb} {adverb} until a tiny spirit-helper appeared. The helper yelled '{exclamation}!' to {name}, threw a {color} rope to his {body-part}, and a {animal} began {verb-ending-in-ing} at the bars. With one {adjective} jump, freedom was finally possible.",
+      "Placeholders": ["adjective", "place", "noun", "number", "plural-noun", "food", "verb", "adverb", "exclamation", "name", "color", "body-part", "animal", "verb-ending-in-ing", "adjective"],
+      "CreatedDate": "2026-04-13T00:00:00.000Z",
+      "IsFavorite": false,
+      "PackId": "pack_aladdin_1"
+    },
+    {
+      "Id": "aladdin1-11",
+      "Title": "Truth on the Rooftops",
+      "Story": "On a {adjective} rooftop in {place}, the hero confessed he wasn't truly a prince and offered a {noun} as proof. The princess listened while {number} {plural-noun} circled above and someone served {food}. He promised to {verb} {adverb} and earn trust honestly. She whispered '{exclamation}!' to {name} when a {color} lantern hit his {body-part}, a {animal} started {verb-ending-in-ing}, and both shared a {adjective} laugh.",
+      "Placeholders": ["adjective", "place", "noun", "number", "plural-noun", "food", "verb", "adverb", "exclamation", "name", "color", "body-part", "animal", "verb-ending-in-ing", "adjective"],
+      "CreatedDate": "2026-04-13T00:00:00.000Z",
+      "IsFavorite": false,
+      "PackId": "pack_aladdin_1"
+    },
+    {
+      "Id": "aladdin1-12",
+      "Title": "Sultan's Very Bad Morning",
+      "Story": "The {adjective} sultan woke in {place} to find his throne replaced by a {noun}. He asked {name} why {number} {plural-noun} were marching through breakfast with {food}. Before anyone could {verb}, the villain shouted '{exclamation}!' and cast a {color} spell at his {body-part}. A {animal} dove for cover, servants started {verb-ending-in-ing} {adverb}, and the royal court became a {adjective} circus.",
+      "Placeholders": ["adjective", "place", "noun", "name", "number", "plural-noun", "food", "verb", "exclamation", "color", "body-part", "animal", "verb-ending-in-ing", "adverb", "adjective"],
+      "CreatedDate": "2026-04-13T00:00:00.000Z",
+      "IsFavorite": false,
+      "PackId": "pack_aladdin_1"
+    },
+    {
+      "Id": "aladdin1-13",
+      "Title": "Street Chase, Round Two",
+      "Story": "Returning to the {adjective} marketplace in {place}, the hero grabbed a {noun} and sprinted past {number} towers of {plural-noun}. He had to {verb} {adverb} before the villain's guards yelled '{exclamation}!' at {name}. A {color} awning snapped onto his {body-part}, a {animal} hurled {food}, and every vendor started {verb-ending-in-ing} in one {adjective} wave of chaos.",
+      "Placeholders": ["adjective", "place", "noun", "number", "plural-noun", "verb", "adverb", "exclamation", "name", "color", "body-part", "animal", "food", "verb-ending-in-ing", "adjective"],
+      "CreatedDate": "2026-04-13T00:00:00.000Z",
+      "IsFavorite": false,
+      "PackId": "pack_aladdin_1"
+    },
+    {
+      "Id": "aladdin1-14",
+      "Title": "Talking the Villain into a Trap",
+      "Story": "In a {adjective} throne room at {place}, the hero challenged the villain to become an even {adjective} sorcerer. He waved a {noun}, counted {number} {plural-noun}, and told him to {verb} {adverb} if he dared. The villain roared '{exclamation}!' at {name}, turned {color}, and transformed while clutching his {body-part}. A {animal} fainted into {food}, everyone began {verb-ending-in-ing}, and the boast ended in a {adjective} prison.",
+      "Placeholders": ["adjective", "place", "adjective", "noun", "number", "plural-noun", "verb", "adverb", "exclamation", "name", "color", "body-part", "animal", "food", "verb-ending-in-ing", "adjective"],
+      "CreatedDate": "2026-04-13T00:00:00.000Z",
+      "IsFavorite": false,
+      "PackId": "pack_aladdin_1"
+    },
+    {
+      "Id": "aladdin1-15",
+      "Title": "The Final Wish",
+      "Story": "After the battle, the hero held the {adjective} lamp in {place} and looked at the spirit with a {adjective} smile. Instead of asking for {food}, he used his last wish to {verb} the spirit {adverb}. The spirit shouted '{exclamation}!' to {name}, tossed {number} {plural-noun} into the {color} sky, hugged his {body-part}, and made a {animal} start {verb-ending-in-ing}. Everyone called it a {adjective} ending.",
+      "Placeholders": ["adjective", "place", "adjective", "food", "verb", "adverb", "exclamation", "name", "number", "plural-noun", "color", "body-part", "animal", "verb-ending-in-ing", "adjective"],
+      "CreatedDate": "2026-04-13T00:00:00.000Z",
+      "IsFavorite": false,
+      "PackId": "pack_aladdin_1"
+    },
+    {
+      "Id": "aladdin1-16",
+      "Title": "The Rulebook Rewrite",
+      "Story": "During a {adjective} ceremony in {place}, the sultan opened a {noun} of old rules in front of {number} {plural-noun}. He decided to {verb} {adverb} and change the marriage law after hearing '{exclamation}!' from {name}. A {color} banner wrapped around his {body-part}, a {animal} delivered {food}, and musicians started {verb-ending-in-ing} in a {adjective} rhythm as the crowd cheered.",
+      "Placeholders": ["adjective", "place", "noun", "number", "plural-noun", "verb", "adverb", "exclamation", "name", "color", "body-part", "animal", "food", "verb-ending-in-ing", "adjective"],
+      "CreatedDate": "2026-04-13T00:00:00.000Z",
+      "IsFavorite": false,
+      "PackId": "pack_aladdin_1"
+    },
+    {
+      "Id": "aladdin1-17",
+      "Title": "Carpet Learns New Tricks",
+      "Story": "After peace returned to {place}, the flying carpet practiced a {adjective} routine with a {noun} balanced on one corner. It had to {verb} {adverb} through {number} rows of {plural-noun} while the hero shouted '{exclamation}!' to {name}. A {color} kite hit his {body-part}, a {animal} stole {food}, and the carpet finished by {verb-ending-in-ing} in a {adjective} bow.",
+      "Placeholders": ["place", "adjective", "noun", "verb", "adverb", "number", "plural-noun", "exclamation", "name", "color", "body-part", "animal", "food", "verb-ending-in-ing", "adjective"],
+      "CreatedDate": "2026-04-13T00:00:00.000Z",
+      "IsFavorite": false,
+      "PackId": "pack_aladdin_1"
+    },
+    {
+      "Id": "aladdin1-18",
+      "Title": "Genie's Going-Away Party",
+      "Story": "For the spirit's farewell in {place}, friends planned a {adjective} party with a giant {noun} cake and {number} bowls of {food}. The spirit promised to {verb} {adverb} across the world after yelling '{exclamation}!' to {name}. A {color} firework singed someone's {body-part}, a {animal} joined the dance, and everyone kept {verb-ending-in-ing} beside stacks of {plural-noun} until dawn in one {adjective} celebration.",
+      "Placeholders": ["place", "adjective", "noun", "number", "food", "verb", "adverb", "exclamation", "name", "color", "body-part", "animal", "verb-ending-in-ing", "plural-noun", "adjective"],
+      "CreatedDate": "2026-04-13T00:00:00.000Z",
+      "IsFavorite": false,
+      "PackId": "pack_aladdin_1"
+    },
+    {
+      "Id": "aladdin1-19",
+      "Title": "A Palace Date Without Magic",
+      "Story": "To prove love without magic, the hero arranged a {adjective} date in {place} using only a {noun}, {food}, and {number} {plural-noun}. He chose to {verb} {adverb} instead of summoning powers. The princess laughed '{exclamation}!' at {name} when a {color} fountain soaked his {body-part}. A {animal} stole dessert and started {verb-ending-in-ing}, but the evening still felt {adjective} and perfect.",
+      "Placeholders": ["adjective", "place", "noun", "food", "number", "plural-noun", "verb", "adverb", "exclamation", "name", "color", "body-part", "animal", "verb-ending-in-ing", "adjective"],
+      "CreatedDate": "2026-04-13T00:00:00.000Z",
+      "IsFavorite": false,
+      "PackId": "pack_aladdin_1"
+    },
+    {
+      "Id": "aladdin1-20",
+      "Title": "New Adventure Beyond the City",
+      "Story": "On a {adjective} morning outside {place}, the newly crowned couple packed a {noun}, {food}, and {number} lucky {plural-noun}. They promised to {verb} {adverb} toward unknown lands while shouting '{exclamation}!' to {name}. A {color} sunrise lit their {body-part}, a {animal} ran beside the carpet, and old friends were left {verb-ending-in-ing} at the gate with {adjective} smiles.",
+      "Placeholders": ["adjective", "place", "noun", "food", "number", "plural-noun", "verb", "adverb", "exclamation", "name", "color", "body-part", "animal", "verb-ending-in-ing", "adjective"],
+      "CreatedDate": "2026-04-13T00:00:00.000Z",
+      "IsFavorite": false,
+      "PackId": "pack_aladdin_1"
+    }
+  ]
+}
