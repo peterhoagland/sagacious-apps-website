@@ -1,0 +1,202 @@
+{
+    "category": "Peter Pan 1",
+    "packId": "pack_peter_pan_1",
+    "isPremium": true,
+    "creditCost": 1,
+    "tags": [
+        "peter pan",
+        "neverland",
+        "captain hook",
+        "wendy",
+        "lost boys",
+        "tinker bell",
+        "jolly roger",
+        "mermaids",
+        "pirates",
+        "flying",
+        "adventure",
+        "funny"
+    ],
+    "stories": [
+        {
+            "Id": "peterpan1-1",
+            "Title": "Window Exit Practice",
+            "Story": "On a {adjective} night in {place}, Peter Pan asked Wendy to grab a {noun} and {plural-noun}. Nana began to {verb} {adverb}, Captain Hook shouted '{exclamation}' at {name}, and a {color} {animal} nibbled his {body-part}. Then {number} plates of {food} flew past, so everyone started {verb-ending-in-ing} in a {adjective} loop.",
+            "Placeholders": ["adjective", "place", "noun", "plural-noun", "verb", "adverb", "exclamation", "name", "color", "animal", "body-part", "number", "food", "verb-ending-in-ing", "adjective"],
+            "CreatedDate": "2026-04-13T00:00:00.000Z",
+            "IsFavorite": false,
+            "PackId": "pack_peter_pan_1"
+        },
+        {
+            "Id": "peterpan1-2",
+            "Title": "Second Star Navigation",
+            "Story": "Before takeoff from {place}, John packed a {adjective} {noun} beside {plural-noun}. Peter shouted to {verb} {adverb}, Tinker Bell yelled '{exclamation}' at {name}, and a {color} {animal} sat on his {body-part}. After {number} cups of {liquid} spilled on {food}, the group kept {verb-ending-in-ing} through the {adjective} clouds.",
+            "Placeholders": ["place", "adjective", "noun", "plural-noun", "verb", "adverb", "exclamation", "name", "color", "animal", "body-part", "number", "liquid", "food", "verb-ending-in-ing", "adjective"],
+            "CreatedDate": "2026-04-13T00:00:00.000Z",
+            "IsFavorite": false,
+            "PackId": "pack_peter_pan_1"
+        },
+        {
+            "Id": "peterpan1-3",
+            "Title": "Lost Boys Breakfast Battle",
+            "Story": "At the {adjective} hideout in {place}, the Lost Boys served imaginary {food} in a {noun}. Peter told everyone to {verb} {adverb}, but Hook screamed '{exclamation}' at {name} when a {color} {animal} landed on his {body-part}. Soon {number} {plural-noun} rolled downhill, and the boys were {verb-ending-in-ing} like a {adjective} marching band.",
+            "Placeholders": ["adjective", "place", "food", "noun", "verb", "adverb", "exclamation", "name", "color", "animal", "body-part", "number", "plural-noun", "verb-ending-in-ing", "adjective"],
+            "CreatedDate": "2026-04-13T00:00:00.000Z",
+            "IsFavorite": false,
+            "PackId": "pack_peter_pan_1"
+        },
+        {
+            "Id": "peterpan1-4",
+            "Title": "Mermaid Lagoon Giggles",
+            "Story": "During a {adjective} afternoon at {place}, a mermaid balanced a {noun} on {plural-noun}. Wendy tried to {verb} {adverb} while Peter yelled '{exclamation}' to {name}. A {color} {animal} splashed Hook's {body-part}, launching {number} pieces of {food}, and everyone ended up {verb-ending-in-ing} in a {adjective} splash-fight.",
+            "Placeholders": ["adjective", "place", "noun", "plural-noun", "verb", "adverb", "exclamation", "name", "color", "animal", "body-part", "number", "food", "verb-ending-in-ing", "adjective"],
+            "CreatedDate": "2026-04-13T00:00:00.000Z",
+            "IsFavorite": false,
+            "PackId": "pack_peter_pan_1"
+        },
+        {
+            "Id": "peterpan1-5",
+            "Title": "Hook's Hat Emergency",
+            "Story": "On the deck of the {adjective} ship near {place}, Captain Hook wore a {noun} stuffed with {plural-noun}. Peter dared him to {verb} {adverb}, then shouted '{exclamation}' at {name}. A {color} {animal} stole his {body-part} warmers, {number} bowls of {food} tipped over, and the crew started {verb-ending-in-ing} in a {adjective} panic.",
+            "Placeholders": ["adjective", "place", "noun", "plural-noun", "verb", "adverb", "exclamation", "name", "color", "animal", "body-part", "number", "food", "verb-ending-in-ing", "adjective"],
+            "CreatedDate": "2026-04-13T00:00:00.000Z",
+            "IsFavorite": false,
+            "PackId": "pack_peter_pan_1"
+        },
+        {
+            "Id": "peterpan1-6",
+            "Title": "Tick-Tock Talent Show",
+            "Story": "At a {adjective} talent contest in {place}, the crocodile played a {noun} made of {plural-noun}. Smee told everyone to {verb} {adverb}, Peter yelled '{exclamation}' at {name}, and a {color} {animal} bumped Hook's {body-part}. Then {number} trays of {food} bounced away, so pirates were {verb-ending-in-ing} in a {adjective} line.",
+            "Placeholders": ["adjective", "place", "noun", "plural-noun", "verb", "adverb", "exclamation", "name", "color", "animal", "body-part", "number", "food", "verb-ending-in-ing", "adjective"],
+            "CreatedDate": "2026-04-13T00:00:00.000Z",
+            "IsFavorite": false,
+            "PackId": "pack_peter_pan_1"
+        },
+        {
+            "Id": "peterpan1-7",
+            "Title": "Shadow Sewing Chaos",
+            "Story": "In a {adjective} room at {place}, Wendy tried to sew Peter's shadow using a {noun} and {plural-noun}. John began to {verb} {adverb}, Tinker Bell yelled '{exclamation}' at {name}, and a {color} {animal} sat on someone's {body-part}. After {number} drops of {liquid} hit the {food}, everyone kept {verb-ending-in-ing} in a {adjective} tangle.",
+            "Placeholders": ["adjective", "place", "noun", "plural-noun", "verb", "adverb", "exclamation", "name", "color", "animal", "body-part", "number", "liquid", "food", "verb-ending-in-ing", "adjective"],
+            "CreatedDate": "2026-04-13T00:00:00.000Z",
+            "IsFavorite": false,
+            "PackId": "pack_peter_pan_1"
+        },
+        {
+            "Id": "peterpan1-8",
+            "Title": "Neverland School Day",
+            "Story": "On a {adjective} school morning in {place}, Wendy wrote on a {noun} while the Lost Boys collected {plural-noun}. Peter told class to {verb} {adverb}, Hook screamed '{exclamation}' at {name}, and a {color} {animal} chewed his {body-part}. Suddenly {number} pieces of {food} rained down, so everyone started {verb-ending-in-ing} in a {adjective} classroom.",
+            "Placeholders": ["adjective", "place", "noun", "plural-noun", "verb", "adverb", "exclamation", "name", "color", "animal", "body-part", "number", "food", "verb-ending-in-ing", "adjective"],
+            "CreatedDate": "2026-04-13T00:00:00.000Z",
+            "IsFavorite": false,
+            "PackId": "pack_peter_pan_1"
+        },
+        {
+            "Id": "peterpan1-9",
+            "Title": "Skull Rock Snack Raid",
+            "Story": "Near {place}, Peter found a {adjective} crate full of {food} and one {noun}. He told Michael to {verb} {adverb}, but Hook shouted '{exclamation}' at {name} when a {color} {animal} climbed onto his {body-part}. After {number} {plural-noun} rolled into the sea, pirates were {verb-ending-in-ing} in a {adjective} stampede.",
+            "Placeholders": ["place", "adjective", "food", "noun", "verb", "adverb", "exclamation", "name", "color", "animal", "body-part", "number", "plural-noun", "verb-ending-in-ing", "adjective"],
+            "CreatedDate": "2026-04-13T00:00:00.000Z",
+            "IsFavorite": false,
+            "PackId": "pack_peter_pan_1"
+        },
+        {
+            "Id": "peterpan1-10",
+            "Title": "Pixie Dust Weather Report",
+            "Story": "During a {adjective} storm over {place}, Tinker Bell shook a {noun} filled with {plural-noun}. Peter said to {verb} {adverb}, John yelled '{exclamation}' at {name}, and a {color} {animal} grabbed his {body-part}. Then {number} cups of {liquid} splashed on the {food}, so everyone went {verb-ending-in-ing} through the {adjective} lightning.",
+            "Placeholders": ["adjective", "place", "noun", "plural-noun", "verb", "adverb", "exclamation", "name", "color", "animal", "body-part", "number", "liquid", "food", "verb-ending-in-ing", "adjective"],
+            "CreatedDate": "2026-04-13T00:00:00.000Z",
+            "IsFavorite": false,
+            "PackId": "pack_peter_pan_1"
+        },
+        {
+            "Id": "peterpan1-11",
+            "Title": "Nana Visits Neverland",
+            "Story": "When Nana arrived at {place} with a {adjective} {noun}, Peter Pan offered her {food} and {plural-noun}. She began to {verb} {adverb}, Hook yelled '{exclamation}' at {name}, and a {color} {animal} licked his {body-part}. Soon {number} tiny bells rang, and the whole island was {verb-ending-in-ing} in a {adjective} parade.",
+            "Placeholders": ["place", "adjective", "noun", "food", "plural-noun", "verb", "adverb", "exclamation", "name", "color", "animal", "body-part", "number", "verb-ending-in-ing", "adjective"],
+            "CreatedDate": "2026-04-13T00:00:00.000Z",
+            "IsFavorite": false,
+            "PackId": "pack_peter_pan_1"
+        },
+        {
+            "Id": "peterpan1-12",
+            "Title": "Jolly Roger Game Night",
+            "Story": "At game night on the {adjective} Jolly Roger near {place}, Smee dealt {plural-noun} with a {noun}. Peter told Hook to {verb} {adverb}, then shouted '{exclamation}' to {name}. A {color} {animal} stepped on his {body-part}, {number} bowls of {food} flipped over, and pirates started {verb-ending-in-ing} in a {adjective} rhythm.",
+            "Placeholders": ["adjective", "place", "plural-noun", "noun", "verb", "adverb", "exclamation", "name", "color", "animal", "body-part", "number", "food", "verb-ending-in-ing", "adjective"],
+            "CreatedDate": "2026-04-13T00:00:00.000Z",
+            "IsFavorite": false,
+            "PackId": "pack_peter_pan_1"
+        },
+        {
+            "Id": "peterpan1-13",
+            "Title": "Tiger Lily Picnic",
+            "Story": "At a {adjective} picnic in {place}, Tiger Lily unpacked a {noun} of {food} and {plural-noun}. Peter asked everyone to {verb} {adverb}, Hook shouted '{exclamation}' at {name}, and a {color} {animal} tapped his {body-part}. Then {number} jars spilled, and the campers kept {verb-ending-in-ing} in a {adjective} circle.",
+            "Placeholders": ["adjective", "place", "noun", "food", "plural-noun", "verb", "adverb", "exclamation", "name", "color", "animal", "body-part", "number", "verb-ending-in-ing", "adjective"],
+            "CreatedDate": "2026-04-13T00:00:00.000Z",
+            "IsFavorite": false,
+            "PackId": "pack_peter_pan_1"
+        },
+        {
+            "Id": "peterpan1-14",
+            "Title": "Hook Learns Ballet",
+            "Story": "In a {adjective} clearing at {place}, Peter made Hook wear a {noun} with {plural-noun}. He told him to {verb} {adverb}, Wendy yelled '{exclamation}' to {name}, and a {color} {animal} pinched his {body-part}. After {number} bites of {food} hit the stage, everyone was {verb-ending-in-ing} like a {adjective} swan.",
+            "Placeholders": ["adjective", "place", "noun", "plural-noun", "verb", "adverb", "exclamation", "name", "color", "animal", "body-part", "number", "food", "verb-ending-in-ing", "adjective"],
+            "CreatedDate": "2026-04-13T00:00:00.000Z",
+            "IsFavorite": false,
+            "PackId": "pack_peter_pan_1"
+        },
+        {
+            "Id": "peterpan1-15",
+            "Title": "Moonlight Flying Lessons",
+            "Story": "Under a {adjective} moon above {place}, Peter handed John a {noun} and {plural-noun} for luck. He told him to {verb} {adverb}, Tinker Bell shouted '{exclamation}' at {name}, and a {color} {animal} perched on his {body-part}. Then {number} spoons of {food} fell from the sky, so everyone kept {verb-ending-in-ing} in a {adjective} spiral.",
+            "Placeholders": ["adjective", "place", "noun", "plural-noun", "verb", "adverb", "exclamation", "name", "color", "animal", "body-part", "number", "food", "verb-ending-in-ing", "adjective"],
+            "CreatedDate": "2026-04-13T00:00:00.000Z",
+            "IsFavorite": false,
+            "PackId": "pack_peter_pan_1"
+        },
+        {
+            "Id": "peterpan1-16",
+            "Title": "Neverland Newspaper",
+            "Story": "For the {adjective} Neverland Gazette in {place}, Wendy wrote about a {noun} and {plural-noun}. Peter asked the reporters to {verb} {adverb}, Hook yelled '{exclamation}' at {name}, and a {color} {animal} tugged his {body-part}. After {number} cups of {liquid} landed on {food}, the newsroom was {verb-ending-in-ing} in {adjective} confusion.",
+            "Placeholders": ["adjective", "place", "noun", "plural-noun", "verb", "adverb", "exclamation", "name", "color", "animal", "body-part", "number", "liquid", "food", "verb-ending-in-ing", "adjective"],
+            "CreatedDate": "2026-04-13T00:00:00.000Z",
+            "IsFavorite": false,
+            "PackId": "pack_peter_pan_1"
+        },
+        {
+            "Id": "peterpan1-17",
+            "Title": "Crocodile Clock Repair",
+            "Story": "At a {adjective} repair shop in {place}, the crocodile swallowed a {noun} and {plural-noun} by mistake. Peter told it to {verb} {adverb}, Smee shouted '{exclamation}' at {name}, and a {color} {animal} bumped Hook's {body-part}. Soon {number} slices of {food} spun around, and everyone began {verb-ending-in-ing} in a {adjective} queue.",
+            "Placeholders": ["adjective", "place", "noun", "plural-noun", "verb", "adverb", "exclamation", "name", "color", "animal", "body-part", "number", "food", "verb-ending-in-ing", "adjective"],
+            "CreatedDate": "2026-04-13T00:00:00.000Z",
+            "IsFavorite": false,
+            "PackId": "pack_peter_pan_1"
+        },
+        {
+            "Id": "peterpan1-18",
+            "Title": "Pirate Choir Auditions",
+            "Story": "On a {adjective} evening in {place}, Hook auditioned pirates with a {noun} and {plural-noun}. Peter ordered them to {verb} {adverb}, Wendy called '{exclamation}' to {name}, and a {color} {animal} stepped on a {body-part}. Then {number} chunks of {food} flew into the crowd, and everyone was {verb-ending-in-ing} in a {adjective} chorus.",
+            "Placeholders": ["adjective", "place", "noun", "plural-noun", "verb", "adverb", "exclamation", "name", "color", "animal", "body-part", "number", "food", "verb-ending-in-ing", "adjective"],
+            "CreatedDate": "2026-04-13T00:00:00.000Z",
+            "IsFavorite": false,
+            "PackId": "pack_peter_pan_1"
+        },
+        {
+            "Id": "peterpan1-19",
+            "Title": "Lagoon Lifeguard Drill",
+            "Story": "At the {adjective} lagoon in {place}, Peter wore a {noun} while carrying {plural-noun}. He told everyone to {verb} {adverb}, Hook screamed '{exclamation}' at {name}, and a {color} {animal} bonked his {body-part}. After {number} cups of {liquid} soaked the {food}, the swimmers kept {verb-ending-in-ing} in a {adjective} wave.",
+            "Placeholders": ["adjective", "place", "noun", "plural-noun", "verb", "adverb", "exclamation", "name", "color", "animal", "body-part", "number", "liquid", "food", "verb-ending-in-ing", "adjective"],
+            "CreatedDate": "2026-04-13T00:00:00.000Z",
+            "IsFavorite": false,
+            "PackId": "pack_peter_pan_1"
+        },
+        {
+            "Id": "peterpan1-20",
+            "Title": "Neverland Grand Prank",
+            "Story": "For the {adjective} finale in {place}, Peter hid a {noun} under {plural-noun}. He told Tinker Bell to {verb} {adverb}, Hook roared '{exclamation}' at {name}, and a {color} {animal} bit his {body-part}. Then {number} pies of {food} burst open, and the entire island finished {verb-ending-in-ing} in a {adjective} celebration.",
+            "Placeholders": ["adjective", "place", "noun", "plural-noun", "verb", "adverb", "exclamation", "name", "color", "animal", "body-part", "number", "food", "verb-ending-in-ing", "adjective"],
+            "CreatedDate": "2026-04-13T00:00:00.000Z",
+            "IsFavorite": false,
+            "PackId": "pack_peter_pan_1"
+        }
+    ]
+}

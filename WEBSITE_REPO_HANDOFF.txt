@@ -1,0 +1,120 @@
+RadLibs Website Repo Handoff: Automated Firebase Collection Upload Pipeline
+
+Context
+- Source app repo: RadLibsApp (.NET 10 MAUI)
+- Existing uploader: RadLibsAdminTool (console tool in RadLibsApp/Tools/RadLibsAdminTool)
+- Requirement: implement a reliable, repeatable upload workflow from the website repo (sagacious-apps-website) without storing Firebase private keys in source control.
+- User preference: step-by-step execution and controlled process.
+
+Primary Goal
+Build a standard content publishing pipeline in the website repo where JSON files placed in a specific folder are automatically uploaded to Firebase Realtime Database using secure credentials, then marked as processed.
+
+Recommended Architecture (for website repo)
+1) Trigger model
+   - GitHub Actions workflow triggers on:
+     - push to uploads/pending/**/*.json
+     - optional manual trigger (workflow_dispatch)
+
+2) Upload source folder
+   - uploads/pending/
+   - Content team drops new collection files here.
+
+3) Upload engine
+   - Reuse existing RadLibsAdminTool from RadLibsApp repo.
+   - Workflow checks out RadLibsApp repo in CI and runs:
+     - dotnet run --project RadLibsApp/Tools/RadLibsAdminTool/RadLibsAdminTool.csproj -- upload <file>
+   - Run once per changed file.
+
+4) Secrets and auth
+   - Store service account JSON in GitHub Actions Secret (not in repo), e.g. FIREBASE_SERVICE_ACCOUNT_JSON.
+   - At runtime, write secret to a temp/local file expected by tool (radlibsapp-service-account.json).
+   - Never commit key file.
+
+5) Validation
+   - Validate JSON before upload (parse + basic schema checks):
+     - array/object valid JSON
+     - each story has Id, Title, Category, Story, Placeholders
+     - optional checks: IsPremium + PackId consistency
+   - Fail workflow if invalid.
+
+6) Processing outcomes
+   - Success path:
+     - upload all detected files
+     - metadata/version update is handled by admin tool
+   - Failure path:
+     - workflow fails with clear file-level errors
+
+7) Governance and safety
+   - Branch protection for main
+   - optional required reviewers for uploads/pending/**
+   - optional GitHub Environment approval for production upload workflow
+
+What was already prepared in app repo
+- A test collection JSON exists and is ready to upload:
+  - RadLibsApp/Tools/RadLibsAdminTool/out/sync-test-collection-1.json
+  - Contains 20 stories: synctest1-1 ... synctest1-20
+  - Category: Sync Test Collection 1
+  - Includes IsPremium and PackId fields.
+- Sync indicator update already completed in app:
+  - Main page last sync text updates when sync completes.
+
+Why this pipeline is needed
+- Avoid local-machine fragility (missing key in bin/output folders).
+- Keep credentials secure and out of source control.
+- Standardize collection publishing for regular content drops.
+- Provide auditable, repeatable uploads.
+
+Implementation tasks for next Copilot session in website repo
+1) Create folders:
+   - uploads/pending/
+   - uploads/processed/ (optional)
+   - .github/workflows/
+
+2) Add workflow file:
+   - .github/workflows/upload-radlibs-collections.yml
+   - Trigger on uploads/pending/**/*.json and workflow_dispatch.
+
+3) In workflow steps:
+   - Checkout website repo.
+   - Checkout RadLibsApp repo (read-only token if needed).
+   - Setup .NET 10 SDK.
+   - Restore/build RadLibsAdminTool.
+   - Materialize FIREBASE_SERVICE_ACCOUNT_JSON into runtime file expected by tool.
+   - Discover changed JSON files in uploads/pending.
+   - Loop and upload each file via RadLibsAdminTool command.
+   - Fail on first upload error (or collect/report all errors).
+
+4) Add repository secrets in website repo:
+   - FIREBASE_SERVICE_ACCOUNT_JSON (required)
+   - optional token for checking out RadLibsApp if private.
+
+5) Add minimal JSON validation step before upload.
+
+6) Add guardrails:
+   - path filter limited to uploads/pending/**
+   - optional manual approval via environment
+   - restrict who can trigger workflow if desired.
+
+7) Test process end-to-end:
+   - Add one small test JSON in uploads/pending
+   - confirm GitHub Action uploads successfully
+   - open app and verify automatic sync fetches new collection
+   - verify metadata/version increment reflected.
+
+Operational usage after setup
+- Drop new collection JSON into uploads/pending/
+- Create PR and merge (or push if permitted)
+- Workflow uploads automatically
+- Open app and verify auto-sync/new collection
+
+Non-goals / constraints
+- Do not store Firebase private keys in repo.
+- Do not depend on client-side GitHub Pages code to perform admin uploads directly.
+- Keep upload authority on trusted server-side runner only (GitHub Actions/backend).
+
+Expected outputs from website repo session
+- One working GitHub Action workflow for upload automation
+- Required folder structure
+- Secret wiring verified
+- One successful test upload run
+

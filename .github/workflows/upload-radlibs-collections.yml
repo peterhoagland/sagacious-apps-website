@@ -1,0 +1,223 @@
+name: Upload RadLibs Collections
+
+on:
+  push:
+    paths:
+      - 'uploads/pending/**/*.json'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  upload-collections:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout website repo
+        uses: actions/checkout@v4
+
+      - name: Setup .NET 10 SDK
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '10.0.x'
+
+      - name: Restore RadLibsAdminTool
+        run: dotnet restore RadLibsAdminTool/RadLibsAdminTool.csproj
+
+      - name: Build RadLibsAdminTool
+        run: dotnet build RadLibsAdminTool/RadLibsAdminTool.csproj --configuration Release --no-restore
+
+      - name: Discover pending JSON files
+        id: discover
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          declare -a files=()
+          while IFS= read -r file; do
+            files+=("$file")
+          done < <(find uploads/pending -type f -name '*.json' | sort)
+
+          if [[ ${#files[@]} -eq 0 ]]; then
+            echo "No pending JSON files found."
+            echo "has_files=false" >> "$GITHUB_OUTPUT"
+            {
+              echo "files<<EOF"
+              echo "EOF"
+            } >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          printf 'Discovered files:\n%s\n' "${files[@]}"
+          echo "has_files=true" >> "$GITHUB_OUTPUT"
+          {
+            echo "files<<EOF"
+            printf '%s\n' "${files[@]}"
+            echo "EOF"
+          } >> "$GITHUB_OUTPUT"
+
+      - name: Validate pending JSON schema
+        if: steps.discover.outputs.has_files == 'true'
+        env:
+          CHANGED_FILES: ${{ steps.discover.outputs.files }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import json
+          import os
+          import sys
+
+          required_story = {"Id", "Title", "Story", "Placeholders", "CreatedDate", "IsFavorite", "PackId"}
+          files = [line.strip() for line in os.environ.get("CHANGED_FILES", "").splitlines() if line.strip()]
+
+          if not files:
+              print("No files to validate.")
+              sys.exit(0)
+
+          failures = []
+
+          for path in files:
+              try:
+                  with open(path, "r", encoding="utf-8") as f:
+                      payload = json.load(f)
+              except Exception as ex:
+                  failures.append(f"{path}: invalid JSON ({ex})")
+                  continue
+
+              collection_is_premium = None
+              stories = None
+
+              if isinstance(payload, list):
+                  stories = payload
+              elif isinstance(payload, dict):
+                  tags = payload.get("tags")
+                  if tags is None or not isinstance(tags, list) or not any(isinstance(t, str) and t.strip() for t in tags):
+                      failures.append(f"{path}: collection-level 'tags' array with at least one non-empty string is required")
+
+                  if "isPremium" in payload:
+                      if not isinstance(payload["isPremium"], bool):
+                          failures.append(f"{path}: collection field 'isPremium' must be boolean")
+                      else:
+                          collection_is_premium = payload["isPremium"]
+
+                  raw_stories = payload.get("stories")
+                  if isinstance(raw_stories, list):
+                      stories = raw_stories
+                  elif isinstance(raw_stories, dict):
+                      stories = list(raw_stories.values())
+                  elif all(k in payload for k in ("Id", "Title", "Story", "Placeholders")):
+                      stories = [payload]
+                  else:
+                      failures.append(f"{path}: expected top-level array, story object, or object with 'stories' list/map")
+                      continue
+              else:
+                  failures.append(f"{path}: top-level JSON must be array or object")
+                  continue
+
+              if not stories:
+                  failures.append(f"{path}: no stories found")
+                  continue
+
+              if len(stories) != 20:
+                  failures.append(f"{path}: collection must contain exactly 20 stories (found {len(stories)})")
+
+              for idx, story in enumerate(stories):
+                  if not isinstance(story, dict):
+                      failures.append(f"{path}: story index {idx} is not an object")
+                      continue
+
+                  missing = sorted(field for field in required_story if field not in story)
+                  if missing:
+                      failures.append(f"{path}: story index {idx} missing fields: {', '.join(missing)}")
+
+                  if "IsPremium" in story:
+                      failures.append(f"{path}: story index {idx} contains deprecated story-level 'IsPremium' field")
+
+                  placeholders = story.get("Placeholders")
+                  if not isinstance(placeholders, list):
+                      failures.append(f"{path}: story index {idx} field 'Placeholders' must be an array")
+                  else:
+                      if not (15 <= len(placeholders) <= 20):
+                          failures.append(f"{path}: story index {idx} must have 15-20 placeholders (found {len(placeholders)})")
+
+              if collection_is_premium is None:
+                  pass
+
+          if failures:
+              print("Validation failed:")
+              for issue in failures:
+                  print(f" - {issue}")
+              sys.exit(1)
+
+          print("Validation passed for all pending JSON files.")
+          PY
+
+      - name: Materialize Firebase service account
+        if: steps.discover.outputs.has_files == 'true'
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [[ -z "${FIREBASE_SERVICE_ACCOUNT_JSON:-}" ]]; then
+            echo "Missing required secret: FIREBASE_SERVICE_ACCOUNT_JSON"
+            exit 1
+          fi
+
+          mkdir -p RadLibsAdminTool/bin/Release/net10.0
+          python3 - <<'PY'
+          import json
+          import os
+          import pathlib
+
+          raw = os.environ["FIREBASE_SERVICE_ACCOUNT_JSON"]
+          parsed = json.loads(raw)
+          out_path = pathlib.Path("RadLibsAdminTool/bin/Release/net10.0/radlibsapp-service-account.json")
+          out_path.write_text(json.dumps(parsed), encoding="utf-8")
+          print(f"Wrote Firebase credential file to {out_path}")
+          PY
+
+      - name: Upload collections to Firebase
+        if: steps.discover.outputs.has_files == 'true'
+        env:
+          CHANGED_FILES: ${{ steps.discover.outputs.files }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p uploads/processed
+
+          while IFS= read -r file; do
+            [[ -z "$file" ]] && continue
+            echo "Uploading: $file"
+            dotnet run --project RadLibsAdminTool/RadLibsAdminTool.csproj --configuration Release --no-build -- upload "$file"
+
+            rel="${file#uploads/pending/}"
+            target="uploads/processed/$rel"
+            mkdir -p "$(dirname "$target")"
+            mv "$file" "$target"
+            echo "Moved to processed: $target"
+          done <<< "$CHANGED_FILES"
+
+      - name: Commit processed file moves
+        if: steps.discover.outputs.has_files == 'true'
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add uploads/pending uploads/processed
+          if git diff --cached --quiet; then
+            echo "No processed file moves to commit."
+            exit 0
+          fi
+
+          git commit -m "chore: move uploaded collections to processed"
+          git push
+
+      - name: No-op when no pending files
+        if: steps.discover.outputs.has_files != 'true'
+        run: echo "No pending uploads detected."

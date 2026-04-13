@@ -1,0 +1,17 @@
+# Firebase Service Account (NEVER COMMIT)
+radlibsapp-service-account.json
+
+# Build outputs
+bin/
+obj/
+
+# User-specific files
+*.user
+*.suo
+
+# Story files (optional - remove if you want to track stories)
+stories/*.json
+
+# Auto-upload folders
+out/*.json
+archived/*.json
