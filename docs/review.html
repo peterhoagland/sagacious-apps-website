@@ -289,6 +289,10 @@
 <div id="app-screen">
   <div class="topbar">
     <h1>📖 Story Review</h1>
+    <select id="db-select" onchange="switchDatabase()">
+      <option value="prod">🟢 Production DB</option>
+      <option value="dev">🔧 Dev DB</option>
+    </select>
     <select id="collection-select" onchange="filterStories()">
       <option value="">All Collections</option>
     </select>
@@ -304,7 +308,11 @@
 
 <script>
   // ── Config ──────────────────────────────────────────────────────────────────
-  const DB_URL        = 'https://radlibsapp-default-rtdb.firebaseio.com';
+  const DB_URLS = {
+    prod: 'https://radlibsapp-default-rtdb.firebaseio.com',
+    dev:  'https://radlibsapp-dev.firebaseio.com'
+  };
+  let DB_URL = DB_URLS.prod;
   const PASS_HASH     = '852e7ab220b8ef8b902bb2a6bbc8c8ba611ef55e8ea42d7f6f82c3e2f87fe6fa';
   const SUPPORT_EMAIL = 'support@sagacious-apps.com';
   const SESSION_KEY   = 'rl_review_auth';
@@ -429,6 +437,16 @@
   function showApp() {
     document.getElementById('auth-screen').style.display = 'none';
     document.getElementById('app-screen').style.display  = 'block';
+    loadStories();
+  }
+
+  function switchDatabase() {
+    const sel = document.getElementById('db-select').value;
+    DB_URL = DB_URLS[sel];
+    document.getElementById('loading-msg').style.display = 'block';
+    document.getElementById('loading-msg').textContent = 'Loading stories from Firebase…';
+    document.getElementById('story-list').innerHTML = '';
+    allStories = [];
     loadStories();
   }
 
