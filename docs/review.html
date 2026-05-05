@@ -265,6 +265,17 @@
 
     .suggest-btn:hover { opacity: 0.85; }
 
+    .blank-count {
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 3px 9px;
+      border-radius: 999px;
+      background: #1e3a2f;
+      border: 1px solid #22c55e44;
+      color: var(--success);
+      white-space: nowrap;
+    }
+
     /* ── Scrollbar ── */
     ::-webkit-scrollbar { width: 6px; }
     ::-webkit-scrollbar-track { background: var(--bg); }
@@ -539,8 +550,20 @@
     badge.className = 'badge';
     badge.textContent = story._category;
 
+    const storyText  = story.Story || story.story || '';
+    const blankCount = (storyText.match(/\{[^{}]+\}/g) || []).length;
+    const blankBadge = document.createElement('span');
+    blankBadge.className = 'blank-count';
+    blankBadge.title = 'Number of blanks in this story';
+    blankBadge.textContent = `${blankCount} blank${blankCount === 1 ? '' : 's'}`;
+
+    const badges = document.createElement('div');
+    badges.style.cssText = 'display:flex;gap:6px;align-items:center;flex-wrap:wrap;justify-content:flex-end;';
+    badges.appendChild(blankBadge);
+    badges.appendChild(badge);
+
     header.appendChild(titleBlock);
-    header.appendChild(badge);
+    header.appendChild(badges);
     card.appendChild(header);
 
     // Rendered story with blank badges
