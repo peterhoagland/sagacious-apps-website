@@ -268,13 +268,75 @@
     .blank-count {
       font-size: 0.72rem;
       font-weight: 600;
-      padding: 3px 9px;
+      padding: 3px 9px 3px 7px;
       border-radius: 999px;
       background: #1e3a2f;
       border: 1px solid #22c55e44;
       color: var(--success);
       white-space: nowrap;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      cursor: default;
     }
+
+    .blank-count.invalid {
+      background: #2d1a1a;
+      border-color: #ef444444;
+      color: var(--danger);
+      cursor: pointer;
+    }
+
+    .blank-count.invalid:hover { opacity: 0.85; }
+
+    /* ── Validation popover ── */
+    .val-popover {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 16px 18px;
+      max-width: 340px;
+      width: max-content;
+      box-shadow: 0 8px 32px #0009;
+    }
+
+    .val-popover.visible { display: block; }
+
+    .val-popover h4 {
+      font-size: 0.85rem;
+      margin-bottom: 10px;
+      color: var(--danger);
+    }
+
+    .val-popover ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .val-popover ul li {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      padding: 4px 0;
+      border-bottom: 1px solid var(--border);
+      line-height: 1.5;
+    }
+
+    .val-popover ul li:last-child { border-bottom: none; }
+
+    .val-popover .pop-close {
+      margin-top: 12px;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      text-align: right;
+      display: block;
+      cursor: pointer;
+    }
+
+    .val-popover .pop-close:hover { color: var(--text); }
 
     /* ── Scrollbar ── */
     ::-webkit-scrollbar { width: 6px; }
@@ -550,12 +612,25 @@
     badge.className = 'badge';
     badge.textContent = story._category;
 
-    const storyText  = story.Story || story.story || '';
-    const blankCount = (storyText.match(/\{[^{}]+\}/g) || []).length;
+    const storyText   = story.Story || story.story || '';
+    const storyTokens = (storyText.match(/\{[^{}]+\}/g) || []).map(t => t.slice(1,-1));
+    const blankCount  = storyTokens.length;
+    const listItems   = story.Placeholders || story.placeholders || [];
+    const placeholders = Array.isArray(listItems) ? listItems : Object.values(listItems);
+
+    const issues = validatePlaceholders(storyTokens, placeholders);
+    const valid  = issues.length === 0;
+
     const blankBadge = document.createElement('span');
-    blankBadge.className = 'blank-count';
-    blankBadge.title = 'Number of blanks in this story';
-    blankBadge.textContent = `${blankCount} blank${blankCount === 1 ? '' : 's'}`;
+    blankBadge.className = valid ? 'blank-count' : 'blank-count invalid';
+    blankBadge.innerHTML =
+      `${valid ? '✓' : '✕'} ${blankCount} blank${blankCount === 1 ? '' : 's'}`;
+
+    if (!valid) {
+      blankBadge.addEventListener('click', (e) => showPopover(e, issues));
+    } else {
+      blankBadge.title = 'Placeholders match ✓';
+    }
 
     const badges = document.createElement('div');
     badges.style.cssText = 'display:flex;gap:6px;align-items:center;flex-wrap:wrap;justify-content:flex-end;';
@@ -583,6 +658,78 @@
       `<span class="blank-token">${token}</span>`
     );
   }
+
+  // ── Placeholder validation ───────────────────────────────────────────────────
+  function validatePlaceholders(storyTokens, placeholders) {
+    const issues = [];
+    const maxLen = Math.max(storyTokens.length, placeholders.length);
+
+    for (let i = 0; i < maxLen; i++) {
+      const inStory = storyTokens[i];
+      const inList  = placeholders[i];
+      const pos     = i + 1;
+      const ordinal = ordStr(pos);
+
+      if (inStory && !inList) {
+        issues.push(`The ${ordinal} blank {${inStory}} in the story has no matching entry in the placeholder list.`);
+      } else if (inList && !inStory) {
+        issues.push(`The ${ordinal} item {${inList}} in the placeholder list has no matching blank in the story.`);
+      } else if (inStory !== inList) {
+        issues.push(`Position ${pos}: story has {${inStory}} but the placeholder list has {${inList}}.`);
+      }
+    }
+
+    return issues;
+  }
+
+  function ordStr(n) {
+    const s = ['th','st','nd','rd'], v = n % 100;
+    return n + (s[(v - 20) % 10] || s[v] || s[0]);
+  }
+
+  // ── Popover ──────────────────────────────────────────────────────────────────
+  const popover = document.createElement('div');
+  popover.className = 'val-popover';
+  document.body.appendChild(popover);
+
+  function showPopover(e, issues) {
+    e.stopPropagation();
+    popover.innerHTML = '';
+
+    const h4 = document.createElement('h4');
+    h4.textContent = `${issues.length} mismatch${issues.length === 1 ? '' : 'es'} found`;
+    popover.appendChild(h4);
+
+    const ul = document.createElement('ul');
+    for (const msg of issues) {
+      const li = document.createElement('li');
+      li.textContent = msg;
+      ul.appendChild(li);
+    }
+    popover.appendChild(ul);
+
+    const close = document.createElement('span');
+    close.className = 'pop-close';
+    close.textContent = 'Tap anywhere to dismiss';
+    popover.appendChild(close);
+
+    // Position near the badge
+    const rect = e.currentTarget.getBoundingClientRect();
+    popover.classList.add('visible');
+
+    // Keep popover on screen
+    const pw = 340;
+    let left = rect.left;
+    if (left + pw > window.innerWidth - 12) left = window.innerWidth - pw - 12;
+    if (left < 8) left = 8;
+    let top = rect.bottom + 8;
+    if (top + popover.offsetHeight > window.innerHeight - 12) top = rect.top - popover.offsetHeight - 8;
+
+    popover.style.left = `${left}px`;
+    popover.style.top  = `${top}px`;
+  }
+
+  document.addEventListener('click', () => popover.classList.remove('visible'));
 
   function buildEditSection(story) {
     const section = document.createElement('div');
