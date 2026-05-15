@@ -338,6 +338,26 @@
 
     .val-popover .pop-close:hover { color: var(--text); }
 
+    .filter-check {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      cursor: pointer;
+      white-space: nowrap;
+      user-select: none;
+    }
+
+    .filter-check input[type="checkbox"] {
+      width: 15px;
+      height: 15px;
+      accent-color: var(--danger);
+      cursor: pointer;
+    }
+
+    .filter-check:hover { color: var(--text); }
+
     /* ── Scrollbar ── */
     ::-webkit-scrollbar { width: 6px; }
     ::-webkit-scrollbar-track { background: var(--bg); }
@@ -369,6 +389,10 @@
     <select id="collection-select" onchange="filterStories()">
       <option value="">All Collections</option>
     </select>
+    <label class="filter-check" title="Show only stories where the placeholder list doesn't match the story blanks">
+      <input type="checkbox" id="mismatch-only" onchange="filterStories()">
+      ✕ Mismatches only
+    </label>
     <span id="story-count"></span>
     <button class="btn btn-secondary" onclick="logout()" style="padding:8px 14px;font-size:0.82rem;">Log out</button>
   </div>
@@ -564,11 +588,25 @@
     }
   }
 
-  function filterStories() {
-    const cat     = document.getElementById('collection-select').value;
-    const visible = cat ? allStories.filter(s => s._category === cat) : allStories;
+  function storyHasMismatch(story) {
+    const storyTokens  = ((story.Story || story.story || '').match(/\{[^{}]+\}/g) || []).map(t => t.slice(1,-1));
+    const listItems    = story.Placeholders || story.placeholders || [];
+    const placeholders = Array.isArray(listItems) ? listItems : Object.values(listItems);
+    return validatePlaceholders(storyTokens, placeholders).length > 0;
+  }
 
-    document.getElementById('story-count').textContent = `${visible.length} stor${visible.length === 1 ? 'y' : 'ies'}`;
+  function filterStories() {
+    const cat          = document.getElementById('collection-select').value;
+    const mismatchOnly = document.getElementById('mismatch-only').checked;
+    let visible = cat ? allStories.filter(s => s._category === cat) : allStories;
+    if (mismatchOnly) visible = visible.filter(storyHasMismatch);
+
+    const total     = cat ? allStories.filter(s => s._category === cat).length : allStories.length;
+    const mismCount = (cat ? allStories.filter(s => s._category === cat) : allStories).filter(storyHasMismatch).length;
+    document.getElementById('story-count').textContent =
+      mismatchOnly
+        ? `${visible.length} mismatch${visible.length === 1 ? '' : 'es'} of ${total}`
+        : `${visible.length} stor${visible.length === 1 ? 'y' : 'ies'}${mismCount > 0 ? ` · ${mismCount} ✕` : ''}`;
     renderStories(visible);
   }
 
