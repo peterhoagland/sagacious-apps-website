@@ -589,7 +589,8 @@
   }
 
   function storyHasMismatch(story) {
-    const storyTokens  = ((story.Story || story.story || '').match(/\{[^{}]+\}/g) || []).map(t => t.slice(1,-1));
+    const allTokens    = ((story.Story || story.story || '').match(/\{[^{}]+\}/g) || []).map(t => t.slice(1,-1));
+    const storyTokens  = allTokens.filter(t => !t.includes(':ref='));
     const listItems    = story.Placeholders || story.placeholders || [];
     const placeholders = Array.isArray(listItems) ? listItems : Object.values(listItems);
     return validatePlaceholders(storyTokens, placeholders).length > 0;
@@ -651,8 +652,9 @@
     badge.textContent = story._category;
 
     const storyText   = story.Story || story.story || '';
-    const storyTokens = (storyText.match(/\{[^{}]+\}/g) || []).map(t => t.slice(1,-1));
-    const blankCount  = storyTokens.length;
+    const allTokens   = (storyText.match(/\{[^{}]+\}/g) || []).map(t => t.slice(1,-1));
+    const storyTokens = allTokens.filter(t => !t.includes(':ref='));
+    const blankCount  = allTokens.length;
     const listItems   = story.Placeholders || story.placeholders || [];
     const placeholders = Array.isArray(listItems) ? listItems : Object.values(listItems);
 
